@@ -33,6 +33,16 @@ namespace SampleAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(Book newBook)
         {
+            // Check if newBook has the same trimmed title as an existing Book
+            // or has a non-positive price value
+            var currentBooks = await _booksService.GetAsync();
+
+            if (currentBooks.Exists(book => book.BookName == newBook.BookName.Trim())
+                || newBook.Price <= 0)
+            {
+                return BadRequest();
+            }
+
             await _booksService.CreateAsync(newBook);
 
             return CreatedAtAction(nameof(Get), new { id = newBook.Id }, newBook);
@@ -46,6 +56,14 @@ namespace SampleAPI.Controllers
             if (book is null)
             {
                 return NotFound();
+            }
+
+            var currentBooks = await _booksService.GetAsync();
+
+            if (currentBooks.Exists(book => book.BookName == updatedBook.BookName.Trim())
+                || updatedBook.Price <= 0)
+            {
+                return BadRequest();
             }
 
             updatedBook.Id = book.Id;
