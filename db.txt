@@ -1,0 +1,35 @@
+Customers:
+[
+  {
+    "Name": "Loc Son",
+    "CitizenNumber": "079204123456"
+    //67cfe7fb0bf45d35c83cf809
+  },
+  {
+    "Name": "Khanh",
+    "CitizenNumber": "079204830284"
+    //67cfe7fb0bf45d35c83cf80a
+  }
+]
+
+Cards:
+[
+  {
+     "CardNumber": "0160-5249-4830-2290",
+     "CustomerId": "67cfe7fb0bf45d35c83cf809",
+     "Pin": "5126",
+     "Balance": 1500,
+     "CreatedAt": {
+       "$date": "2025-03-11T11:08:25.000Z"
+     }
+  },
+  {
+     "CardNumber": "0168-4280-5900-0470",
+     "CustomerId": "67cfe7fb0bf45d35c83cf80a",
+     "Pin": "2243",
+     "Balance": 2000,
+     "CreatedAt": {
+       "$date": "2025-03-11T11:12:34.000Z"
+     }
+  }
+]
